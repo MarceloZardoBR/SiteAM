@@ -1,0 +1,66 @@
+﻿@model IEnumerable<FiapAM.Models.Contato>
+
+@{
+    //ViewBag.Title = "Motivos";
+    Layout = "~/Views/Shared/LayoutWebAdm.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+
+    <!-- Page Content -->
+    <div class="container">
+        <!-- Heading Row -->
+        <div class="row">
+
+            <div class="col-md-12">
+                <h1>Produtos</h1>
+
+                
+                <table class="table table-striped" cellspacing="0" cellpadding="0">
+                    <thead>
+                        <tr>
+                            <th data-field="name">@Html.DisplayNameFor(model => model.Nome)</th>
+                            <th data-field="stargazers_count">Descrição</th>
+                            <th data-field="forks_count">Preço</th>
+                            <th data-field="description">Características</th>
+                            <th class="actions" width="220">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>@item.Nome</td>
+                            <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Mensagem) </td>
+                            <td>@Html.DisplayFor(modelItem => item.TipoContato)</td>
+                            <td class="actions">
+                                <a class="btn btn-success btn-xs" href="/Produto/Consultar/@item.IdContato">Visualizar</a>
+                                
+                                @Html.ActionLink("Excluir", "Excluir", new { id = item.IdContato }, new { @class = "btn btn-danger btn-xs" })
+
+                            </td>
+                        </tr>
+                        }
+
+                    </tbody>
+                </table>
+
+
+
+            </div>
+            <!-- /.col-md-4 -->
+        </div>
+        <!-- /.row -->
+        </div>
+</body>
+</html>
+
