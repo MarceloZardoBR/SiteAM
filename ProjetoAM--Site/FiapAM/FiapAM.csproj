@@ -497,6 +497,11 @@
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
@@ -530,6 +535,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\UrlFormat.cs" />
     <Compile Include="Models\Contato.cs" />
     <Compile Include="Models\Investidor.cs" />
     <Compile Include="Models\Log.cs" />
@@ -566,6 +572,7 @@
     <Content Include="Views\Admin\Login.cshtml" />
     <Content Include="Views\Motivos\Index.cshtml" />
     <Content Include="Views\Investidor\Inserir.cshtml" />
+    <Content Include="Views\Investidor\Editar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

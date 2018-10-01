@@ -1,4 +1,5 @@
-﻿@model IEnumerable<FiapAM.Models.Investidor>
+﻿@using FiapAM.Helper;
+@model IEnumerable<FiapAM.Models.Investidor>
 
 @{
 
@@ -29,7 +30,7 @@
                 <table class="table table-striped" cellspacing="0" cellpadding="0">
                     <thead>
                         <tr>
-                            <th data-field="name">Nome</th>                      
+                            <th data-field="name">Nome</th>
                             <th data-field="description">Empresa</th>
                             <th class="actions" width="220">Ações</th>
                         </tr>
@@ -37,18 +38,24 @@
                     <tbody>
 
                         @foreach (var item in Model)
-                         {
-                    <tr>
-                        <td>@item.NomeInvestidor</td>
-                        <td>@Html.DisplayFor(modelItem => item.EmpresaInvestidor) </td>
-                        <td class="actions">
-                            <a class="btn btn-success btn-xs" href="*@item.IdInvestidor">Visualizar</a>
-                            @Html.ActionLink("Editar", "Editar", new { id = item.IdInvestidor }, new { @class = "btn btn-warning btn-xs" })
-                            @Html.ActionLink("Excluir", "Excluir", new { id = item.IdInvestidor }, new { @class = "btn btn-danger btn-xs" })
+                        {
+                            <tr>
+                                <td>@item.NomeInvestidor</td>
+                                <td>
+                                    <a href="*/@item.IdInvestidor/@UrlFormat.UrlAmigavel(item.EmpresaInvestidor)">
+                                        @Html.DisplayFor(modelItem => item.EmpresaInvestidor)
+                                    </a>
+                                </td>
+                                <td>@item.NomeInvestidor</td>
+                                <td>@Html.DisplayFor(modelItem => item.EmpresaInvestidor) </td>
+                                <td class="actions">
+                                    <a class="btn btn-success btn-xs" href="*@item.IdInvestidor">Visualizar</a>
+                                    @Html.ActionLink("Editar", "Editar", new { id = item.IdInvestidor }, new { @class = "btn btn-warning btn-xs" })
+                                    @Html.ActionLink("Excluir", "Excluir", new { id = item.IdInvestidor }, new { @class = "btn btn-danger btn-xs" })
 
-                        </td>
-                    </tr>
-                         }
+                                </td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
 
@@ -58,7 +65,7 @@
             <!-- /.col-md-4 -->
         </div>
         <!-- /.row -->
-        </div>
+    </div>
 
 </body>
 </html>

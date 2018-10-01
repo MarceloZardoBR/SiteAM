@@ -21,7 +21,7 @@ namespace FiapAM.Models
         [Required(ErrorMessage = "Nome obrigatório")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "O campo Nome deve possuir no mínimo 3 e no máximo 50 caracteres")]
         [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$", ErrorMessage = "Digite o nome sem números e caracteres especiais.")]
-        [Column("NOME")]
+        [Column("NOMECONTATO")]
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "e-Mail obrigatório")]
@@ -35,12 +35,12 @@ namespace FiapAM.Models
         [Column("MENSAGEM")]
         public string Mensagem { get; set; }
 
+        //[ScriptIgnore]    
 
-        //[ForeignKey("IDTIPOCONTATO")]
-        //public int IdTipoContato { get; set; }
-        
+        //[ForeignKey("TIPOCONTATO")]
+        [Column("IDTIPOCONTATO")]
+        public int IdTipoContato { get; set; }
 
-        //[ScriptIgnore]
         public virtual TipoContato TipoContato { get; set; }   
       
     }

@@ -72,6 +72,6 @@ namespace FiapAM.Controllers
             */
         }
 
-        [HttpPost]
+        //[HttpPost]
     }
 }

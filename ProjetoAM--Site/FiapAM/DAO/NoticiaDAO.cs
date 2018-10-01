@@ -30,7 +30,7 @@ namespace FiapAM.DAO
         public Noticia BuscarPorNome(String nome)
         {
             Noticia News = new Noticia();
-            using(DataBaseContext Dbx = new DataBaseContext)
+            using(DataBaseContext Dbx = new DataBaseContext())
             {
                 News = Dbx.Noticias.Where(v => v.Titulo == nome).SingleOrDefault<Noticia>();
             }
