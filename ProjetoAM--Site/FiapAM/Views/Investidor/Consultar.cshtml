@@ -1,0 +1,53 @@
+﻿@model FiapAM.Models.Investidor
+
+@{
+    ViewBag.Title = "Consultar";
+    Layout = "~/Views/Shared/LayoutWebAdm.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Consultar</title>
+</head>
+<body>
+
+    <!-- Page Content -->
+    <div class="container">
+        <!-- Call to Action Well -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="well">
+                    <h2>Investidor</h2>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NomeInvestidor, htmlAttributes: new { @class = "control-label" })
+                        @Html.DisplayFor(model => model.NomeInvestidor);
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.EmpresaInvestidor, htmlAttributes: new { @class = "control-label" })
+                        @Html.DisplayFor(model => model.EmpresaInvestidor)
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label" })
+                        @Html.DisplayFor(model => model.Email);
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Telefone, htmlAttributes: new { @class = "control-label" })
+                        @Html.DisplayFor(model => model.Telefone);
+                    </div>
+                    <hr>
+                    @Html.ActionLink("Voltar", "Index", new object { }, new { @class = "btn btn-default btn-lg" })
+
+                </div>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        </div>
+</body>
+</html>
+
+

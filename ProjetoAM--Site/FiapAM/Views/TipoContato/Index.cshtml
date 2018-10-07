@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+
+        <table class="table table-striped" cellspacing="0" cellpadding="0">
+            <thead>
+                <tr>
+                    <th data-field="name">Id</th>
+                    <th data-field="Descricao">Nome</th>
+                    <th class="actions" width="220">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ViewBag.ListaTipoContato)
+                {
+                    <tr>
+                        <td>@item.IdTipoContato</td>
+                        <td>@item.NomeTipoContato</td>
+                        <td class="actions">
+                            <a class="btn btn-success btn-xs" href#">Excluir</a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+    </div>
+</body>
+</html>
