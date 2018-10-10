@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -28,6 +29,8 @@ namespace FiapAM.Controllers
         [HttpPost]
         public ActionResult Cadastrar(Noticia news)
         {
+
+           
             NoticiaDAO NewsDAO = new NoticiaDAO();
             NewsDAO.Inserir(news);
             TempData["mensagem"] = "Nova noticia cadastrada com sucesso!";
@@ -90,32 +93,20 @@ namespace FiapAM.Controllers
         public ActionResult InserirImagem()
         {
             ModelState.Clear();
-            return View(new Noticia());
+            return View(new Imagem());
         }
 
         [HttpPost]
-        public ActionResult InserirImagem(Noticia news)
+        public ActionResult InserirImagem(Imagem _imagem)
         {
             NoticiaDAO NewsDAO = new NoticiaDAO();
-            NewsDAO.Inserir(news);
-            TempData["mensagem"] = "Nova noticia cadastrada com sucesso!";
+            NewsDAO.InserirImagem(_imagem);
+            TempData["mensagem"] = "Imagem cadastrada com sucesso!";
             return RedirectToAction("Index");
             
         }
 
-        [HttpGet]
-        public ActionResult CadastrarImagem(int Id)
-        {
-            return View(new NoticiaDAO().BuscarPorId(Id));
-        }
-
-        [HttpPost]
-        public ActionResult CadastrarImagem(Noticia News)
-        {
-            NoticiaDAO _noticiaDAO = new NoticiaDAO();
-            _noticiaDAO.Editar(News);
-            return View();
-        }
+        
 
         [HttpGet]
         public ActionResult Excluir(int _id)

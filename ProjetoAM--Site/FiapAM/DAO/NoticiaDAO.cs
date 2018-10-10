@@ -22,11 +22,11 @@ namespace FiapAM.DAO
             }
         }
 
-        public void InserirImagem(Noticia News)
+        public void InserirImagem(Imagem _Imagem)
         {
             using (DataBaseContext DbContext = new DataBaseContext())
             {
-                DbContext.Entry(News).State = System.Data.Entity.EntityState.Modified;
+                DbContext.Imagens.Add(_Imagem);
                 DbContext.SaveChanges();
             }
 
