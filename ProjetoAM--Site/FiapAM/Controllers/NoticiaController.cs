@@ -27,52 +27,28 @@ namespace FiapAM.Controllers
         }
 
         [HttpPost]
-        public ActionResult Cadastrar(Noticia news)
+        public ActionResult Cadastrar(Noticia news, HttpPostedFileBase arquivo)
         {
 
-           
+            var extenxao = System.IO.Path.GetExtension(arquivo.FileName);
+            var nomeUnico = String.Format("{0}_{1}{2}",
+                System.IO.Path.GetFileNameWithoutExtension(arquivo.FileName), DateTime.Now.Ticks, extenxao);
+            var caminho = "";
+
+            arquivo.SaveAs(caminho = System.IO.Path.Combine(Server.MapPath("~/Arquivos/"), nomeUnico));
+
+            Imagem _imagem = new Imagem();
+
+            _imagem.Noticia = news;
+            _imagem.Caminho = Convert.ToString(caminho);
+            _imagem.Rotulo = arquivo.FileName;
+
             NoticiaDAO NewsDAO = new NoticiaDAO();
             NewsDAO.Inserir(news);
             TempData["mensagem"] = "Nova noticia cadastrada com sucesso!";
             return RedirectToAction("Index");
 
-            /*bool status = true;
-
-            if (ModelState.IsValid)
-            {
-
-                NoticiaDAO NewsDAO = new NoticiaDAO();
-
-                //Pesquisar como funciona esse if
-                Noticia NoticiaExiste = NewsDAO.BuscarPorNome(news.Titulo);
-                if ((NoticiaExiste == null) || !String.Equals(NoticiaExiste.Titulo, news.Titulo))
-                {
-                    NewsDAO.Inserir(news);
-                    TempData["mensagem"] = "Usuario Inserido com Sucesso!";
-                    //fazer o temp data para a Mensagem
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Investidor já existe");
-                    status = false;
-                }
-
-            }
-            else
-            {
-                status = false;
-            }
-            //Terminar as validações e redirecionamento
-            //Fazendo o redirecionamento
-            if (status)
-            {
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                return View();
-            }
-            */
+            
         }
 
         [HttpGet]
@@ -97,8 +73,17 @@ namespace FiapAM.Controllers
         }
 
         [HttpPost]
-        public ActionResult InserirImagem(Imagem _imagem)
+        public ActionResult InserirImagem(Imagem _imagem, HttpPostedFileBase arquivo)
         {
+            var extenxao = System.IO.Path.GetExtension(arquivo.FileName);
+            var nomeUnico = String.Format("{0}_{1}{2}",
+                System.IO.Path.GetFileNameWithoutExtension(arquivo.FileName), DateTime.Now.Ticks, extenxao);
+            var caminho = "";
+
+            arquivo.SaveAs( caminho = System.IO.Path.Combine(Server.MapPath("~/Arquivos/"), nomeUnico));
+
+            _imagem.Caminho = Convert.ToString(caminho);
+
             NoticiaDAO NewsDAO = new NoticiaDAO();
             NewsDAO.InserirImagem(_imagem);
             TempData["mensagem"] = "Imagem cadastrada com sucesso!";
