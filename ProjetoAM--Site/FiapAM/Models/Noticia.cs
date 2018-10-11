@@ -35,5 +35,7 @@ namespace FiapAM.Models
         public String Texto { get; set; }
 
         public virtual ICollection<Imagem> ListaImagem { get; set; }
+
+        
     }
 }
