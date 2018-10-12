@@ -1,0 +1,65 @@
+﻿@using FiapAM.Helper
+
+@model IEnumerable<FiapAM.Models.Noticia>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/LayoutWebAdm.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <!-- Page Content -->
+    <div class="container">
+        <!-- Heading Row -->
+        <div class="row">
+            <div class="col-md-12">
+                <h1>eDenúncia</h1>
+                <p class="toolbar">
+                    @Html.ActionLink("Inserir Nova Noticia", "Cadastrar", new object { }, new { @class = "create btn btn-default" })
+                    <br />
+                    <span class="alert">@TempData["mensagem"]</span>
+                </p>
+                <table class="table table-striped" cellspacing="0" cellpadding="0">
+                    <thead>
+                        <tr>
+                            <th data-field="name">@Html.DisplayNameFor(model => model.Titulo)</th>
+                            <th data-field="description">Parte do Texto</th>
+                        
+                            <th class="actions" width="220">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Titulo</td>
+                                <td>
+                                    <a href="*">
+                                      
+                                    </a>
+                                </td>
+                                <td>@Html.DisplayFor(modelItem => item.Texto) </td>
+                                     
+                                <td class="actions">
+                                    <a class="btn btn-success btn-xs" href="@item.Idnoticia">Visualizar</a>
+                                    @Html.ActionLink("Editar", "Editar", new { id = item.Idnoticia }, new { @class = "btn btn-warning btn-xs" })
+                                    @Html.ActionLink("Excluir", "Excluir", new { id = item.Idnoticia }, new { @class = "btn btn-danger btn-xs" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+            <!-- /.col-md-4 -->
+        </div>
+        <!-- /.row -->
+    </div>
+</body>
+</html>
