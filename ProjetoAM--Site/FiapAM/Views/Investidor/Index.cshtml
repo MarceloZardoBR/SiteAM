@@ -3,7 +3,7 @@
 
 @{
 
-    Layout = "~/Views/Shared/LayoutWebAdm.cshtml";
+    Layout = "~/Views/Shared/LayoutDashAdmin.cshtml";
 }
 <!DOCTYPE html>
 
@@ -20,12 +20,11 @@
         <div class="row">
 
             <div class="col-md-12">
-                <h1>eDenúncia</h1>
 
                 <p class="toolbar">
                     @Html.ActionLink("Inserir Novo Investidor", "Inserir", new object { }, new { @class = "create btn btn-default" })
                     <br />
-                    <span class="alert">@TempData["mensagem"]</span>
+                    
                 </p>
                 <table class="table table-striped" cellspacing="0" cellpadding="0">
                     <thead>

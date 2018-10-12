@@ -1,4 +1,6 @@
-﻿@model IEnumerable<FiapAM.Models.Noticia>
+﻿@using FiapAM.Helper
+
+@model IEnumerable<FiapAM.Models.Noticia>
 
 @{
     ViewBag.Title = "Index";
@@ -9,14 +11,7 @@
 <div class="row">
     <div class="col-lg-12 my-3">
         <div class="pull-right">
-            <div class="btn-group">
-                <button class="btn btn-info" id="list">
-                    List View
-                </button>
-                <button class="btn btn-danger" id="grid">
-                    Grid View
-                </button>
-            </div>
+            
         </div>
     </div>
 </div>
@@ -24,11 +19,13 @@
     
     @foreach (var item in Model)
     {
+        
+
         <div class="item col-xs-4 col-lg-4">
             <div class="thumbnail card">
                 <div class="img-event">
-                    <img class="group list-group-image img-fluid" src="@Html.DisplayFor(model => item.UrlImagem)"
-                         style="max-width:400px; max-height:200px;" />
+                    <img src="@Html.DisplayFor(model => item.UrlImagem)"
+                         width="348" height="200" />
                 </div>
                 <div class="caption card-body">
                     <p class="group inner list-group-item-text">
@@ -37,8 +34,11 @@
                     <h4 class="group card-title inner list-group-item-heading">
                         @Html.DisplayFor(model => item.Titulo)
                     </h4>
+
                     <p class="group inner list-group-item-text">
-                    @Html.DisplayFor(model => item.Texto)    
+
+                        @Html.DisplayFor(model => item.Descricao)
+
                     </p>
                     <div class="row">
                         <div class="col-xs-12 col-md-6">

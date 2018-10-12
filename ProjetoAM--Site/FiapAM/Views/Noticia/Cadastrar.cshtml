@@ -3,7 +3,7 @@
 
 @{
     ViewBag.Title = "Cadastrar";
-    Layout = "~/Views/Shared/LayoutWebAdm.cshtml";
+    Layout = "~/Views/Shared/LayoutDashAdmin.cshtml";
 }
 
 <!DOCTYPE html>
@@ -31,7 +31,7 @@
 
                         <div class="form-group">
                             <label class="control-label" for="mensagem">Texto - (Conteudo):</label>
-                            @Html.TextAreaFor(model => model.Texto, new { @class = "form-control", @cols = 100, @rows = 2 })
+                            @Html.TextAreaFor(model => model.Texto, new { @class = "form-control", @cols = 3000, @rows = 10 })
                             @Html.ValidationMessageFor(model => model.Texto, "", new { @class = "text-danger" })
                         </div>
 

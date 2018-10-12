@@ -15,5 +15,23 @@ namespace FiapAM.Helper
             url = Regex.Replace(url, @"\W+", "-");
             return url;
         }
+
+        public static string Truncate(string texto, int length)
+        {
+
+            if (texto.Length <= length)
+
+            {
+
+                return texto;
+
+            }
+            else
+
+            {
+                return texto.Substring(0, length) + "...";
+            }
+
+        }
     }
 }

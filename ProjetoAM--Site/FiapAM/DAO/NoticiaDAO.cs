@@ -18,13 +18,13 @@ namespace FiapAM.DAO
             return new DataBaseContext().Noticias.ToList<Noticia>();
         }
 
-        public void Inserir(Noticia News)
+        public void Inserir(Noticia news)
         {
             
             using(DataBaseContext Dbx = new DataBaseContext())
             {
                 //News.Data = DateTime.Now.ToString();
-                Dbx.Noticias.Add(News);
+                Dbx.Noticias.Add(news);
                 Dbx.SaveChanges();
             }
         }
