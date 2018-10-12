@@ -578,6 +578,7 @@
     <Content Include="Views\Noticia\Cadastrar.cshtml" />
     <Content Include="Views\Noticia\InserirImagem.cshtml" />
     <Content Include="Views\Home\Visualizar.cshtml" />
+    <Content Include="Views\Noticia\Editar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

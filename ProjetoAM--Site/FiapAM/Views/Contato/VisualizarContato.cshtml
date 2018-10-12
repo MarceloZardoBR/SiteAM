@@ -31,10 +31,6 @@
                         @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label" })
                         @Html.DisplayFor(model => model.Email);
                     </div>
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.TipoContato.NomeTipoContato, htmlAttributes: new { @class = "control-label" })
-                        @Html.DisplayFor(model => model.TipoContato.NomeTipoContato);
-                    </div>
                     <hr>
                     @Html.ActionLink("Voltar", "Index", new object { }, new { @class = "btn btn-default btn-lg" })
                 </div>

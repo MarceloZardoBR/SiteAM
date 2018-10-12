@@ -44,9 +44,7 @@
                         <tr>
                             <td>@item.NomeInvestidor</td>
                             <td>
-                                <a href="*/@item.IdInvestidor/@UrlFormat.UrlAmigavel(item.EmpresaInvestidor)">
-                                    @Html.DisplayFor(modelItem => item.EmpresaInvestidor)
-                                </a>
+                                    @Html.DisplayFor(modelItem => item.EmpresaInvestidor)                             
                             </td>
                             <td>@Html.DisplayFor(modelItem => item.Email) </td>
                             <td>@Html.DisplayFor(modelItem => item.Telefone) </td>

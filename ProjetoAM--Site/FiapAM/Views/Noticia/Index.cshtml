@@ -30,7 +30,7 @@
                         <tr>
                             <th data-field="name">@Html.DisplayNameFor(model => model.Titulo)</th>
                             <th data-field="description">Parte do Texto</th>
-                        
+                            
                             <th class="actions" width="220">Ações</th>
                         </tr>
                     </thead>
@@ -40,14 +40,11 @@
                             <tr>
                                 <td>@item.Titulo</td>
                                 <td>
-                                    <a href="*">
-                                      
-                                    </a>
+                                    @Html.DisplayFor(modelItem => item.Texto)
                                 </td>
-                                <td>@Html.DisplayFor(modelItem => item.Texto) </td>
+                                
                                      
                                 <td class="actions">
-                                    <a class="btn btn-success btn-xs" href="@item.Idnoticia">Visualizar</a>
                                     @Html.ActionLink("Editar", "Editar", new { id = item.Idnoticia }, new { @class = "btn btn-warning btn-xs" })
                                     @Html.ActionLink("Excluir", "Excluir", new { id = item.Idnoticia }, new { @class = "btn btn-danger btn-xs" })
                                 </td>

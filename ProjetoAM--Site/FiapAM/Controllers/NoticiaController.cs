@@ -53,9 +53,9 @@ namespace FiapAM.Controllers
 
 
         [HttpGet]
-        public ActionResult Excluir(int _id)
+        public ActionResult Excluir(int id)
         {
-            new NoticiaDAO().Deletar(_id);
+            new NoticiaDAO().Deletar(id);
 
             return RedirectToAction("Index");
         }
