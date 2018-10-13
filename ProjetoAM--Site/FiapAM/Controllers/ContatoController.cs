@@ -44,15 +44,33 @@ namespace FiapAM.Controllers
         [HttpGet]
         public ActionResult MotivoContato()
         {
-            ContatoDAO dao = new ContatoDAO();
-            IList<Contato> listarTudo = dao.ListaTodos();
-            return View(listarTudo);
+            if (Session["UsuarioLogado"] != null)
+            {
+                ContatoDAO dao = new ContatoDAO();
+                IList<Contato> listarTudo = dao.ListaTodos();
+                return View(listarTudo);
+            }
+            else
+            {
+                TempData["Mensagem"] = "Sessão Expirada!, Por Favor efetuar login novamente";
+                return RedirectToAction("Index", "Admin");
+            }
+            
         }
 
         [HttpGet]
         public ActionResult VisualizarContato(int Id)
         {
-            return View(new ContatoDAO().Vizualizar(Id));
+            if (Session["UsuarioLogado"] != null)
+            {
+                return View(new ContatoDAO().Vizualizar(Id));
+            }
+            else
+            {
+                TempData["Mensagem"] = "Sessão Expirada!, Por Favor efetuar login novamente";
+                return RedirectToAction("Index", "Admin");
+            }
+            
         }
 
         [HttpGet]

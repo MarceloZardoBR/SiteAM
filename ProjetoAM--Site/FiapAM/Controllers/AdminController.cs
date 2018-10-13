@@ -23,7 +23,7 @@ namespace FiapAM.Controllers
         {
             if(UsuarioLogin != null)
             {
-                if(UsuarioLogin.EmailUsuario.Equals("admin@teste.com"))
+                if(UsuarioLogin.EmailUsuario.Equals("admin@teste.com") && UsuarioLogin.SenhaUsuario.Equals("admin1234"))
                 {
                     Session["UsuarioLogado"] = UsuarioLogin;
                     return View();

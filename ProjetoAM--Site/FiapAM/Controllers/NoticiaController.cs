@@ -14,50 +14,88 @@ namespace FiapAM.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            NoticiaDAO dao = new NoticiaDAO();
-            IList<Noticia> lista = dao.ListarTodos();
 
-            return View(lista);
+            if (Session["UsuarioLogado"] != null)
+            {
+                NoticiaDAO dao = new NoticiaDAO();
+                IList<Noticia> lista = dao.ListarTodos();
+
+                return View(lista);
+            }
+            else
+            {
+                TempData["Mensagem"] = "Sessão Expirada!, Por Favor efetuar login novamente";
+                return RedirectToAction("Index", "Admin");
+            }
+
+
         }
 
         [HttpGet]
         public ActionResult Cadastrar()
         {
-            ModelState.Clear();
-            return View(new Noticia());
+            if (Session["UsuarioLogado"] != null)
+            {
+                ModelState.Clear();
+                return View(new Noticia());
+            }
+            else
+            {
+                TempData["Mensagem"] = "Sessão Expirada!, Por Favor efetuar login novamente";
+                return RedirectToAction("Index", "Admin");
+            }
+
         }
 
         [HttpPost]
         public ActionResult Cadastrar(Noticia news)
         {
-
             NoticiaDAO NewsDAO = new NoticiaDAO();
             NewsDAO.Inserir(news);
             TempData["mensagem"] = "Nova noticia cadastrada com sucesso!";
-            return RedirectToAction("Index");   
+            return RedirectToAction("Index");
+          
+            
         }
 
         [HttpGet]
         public ActionResult Editar(int Id)
         {
-            return View(new NoticiaDAO().BuscarPorId(Id));
+            if (Session["UsuarioLogado"] != null)
+            {
+                return View(new NoticiaDAO().BuscarPorId(Id));
+            }
+            else
+            {
+                TempData["Mensagem"] = "Sessão Expirada!, Por Favor efetuar login novamente";
+                return RedirectToAction("Index", "Admin");
+            }
+
         }
 
         [HttpPost]
         public ActionResult Editar(Noticia News)
         {
-            NoticiaDAO _noticiaDAO = new NoticiaDAO();
-            _noticiaDAO.Editar(News);
-            return View();
+
+                NoticiaDAO _noticiaDAO = new NoticiaDAO();
+                _noticiaDAO.Editar(News);
+                return View();
         }
 
 
         [HttpGet]
         public ActionResult Excluir(int id)
         {
+            if(Session["UsuarioLogado"] != null) { 
             new NoticiaDAO().Deletar(id);
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                TempData["Mensagem"] = "Sessão Expirada!, Por Favor efetuar login novamente";
+                return RedirectToAction("Index", "Admin");
+            }
         }
 
         [HttpGet]

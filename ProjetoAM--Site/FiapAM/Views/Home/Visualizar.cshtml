@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Visualizar";
-    Layout = "~/Views/Shared/LayoutWebAdm.cshtml";
+    Layout = "~/Views/Shared/LayoutNoticia.cshtml";
 }
 
 <!DOCTYPE html>
@@ -20,20 +20,19 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="well">
-                    <h2>Noticia</h2>
+                    <h2>@Html.DisplayFor(model => model.Titulo)</h2>
+
                     <div class="form-group">
-                        @Html.LabelFor(model => model.Titulo, htmlAttributes: new { @class = "control-label" })
-                        @Html.DisplayFor(model => model.Titulo);
+                        <h6>@Html.LabelFor(model => model.Data, htmlAttributes: new { @class = "control-label" }): @Html.DisplayFor(model => model.Data)</h6>
+
                     </div>
+                    <center>
+                        <img class="group list-group-image img-fluid" src="@Html.DisplayFor(model => model.UrlImagem)"
+                             style="max-width:780px; max-height:300px;" />
+                    </center>
+                    <br />
                     <div class="form-group">
-                        @Html.LabelFor(model => model.Data, htmlAttributes: new { @class = "control-label" })
-                        @Html.DisplayFor(model => model.Data);
-                    </div>
-                    <img class="group list-group-image img-fluid" src="@Html.DisplayFor(model => model.UrlImagem)"
-                         style="max-width:400px; max-height:200px;" />
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Texto, htmlAttributes: new { @class = "control-label" })
-                        @Html.DisplayFor(model => model.Texto)
+                        <p>@Html.DisplayFor(model => model.Texto)</p>
                     </div>
 
                     <hr>

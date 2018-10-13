@@ -1,6 +1,4 @@
-﻿@{
-    Layout = null;
-}
+﻿<!DOCTYPE html>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Administrador</title>
+    <title>eDenúncia</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/bootstrap-custom.css")" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="@Url.Content("~/Content/small-business.css")" rel="stylesheet">
 
@@ -36,22 +34,26 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="@Url.Content("~/Admin/Index")">
-                    <img src="http://placehold.it/150x50&text=Logo" alt="">
-                </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>
-                        <a href="@Url.Content("~/Noticia/")">Noticias</a>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/Home/">Home</a>
                     </li>
-                    <li>
-                        <a href="@Url.Content("~/Investidor/")">Investidores - Partners</a>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#download">Download</a>
                     </li>
-                    <li>
-                        <a href="@Url.Content("~/Contato/MotivoContato")">Motivos de Contato</a>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#features">Característica</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/Contato/">Contato</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/Admin/">Administrador</a>
+                    </li>
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -63,11 +65,31 @@
 
     @RenderBody()
 
+    <div align="center">
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <p>&copy; eDenúncia 2018. All Rights Reserved.</p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <a href="#">Privacy</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">Terms</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">FAQ</a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </div>
 
-    <script src="@Url.Content("~/Scripts/jquery-3.3.1.js")"></script>
-    <script src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/scripts/jquery.js")"></script>
+    <script src="@Url.Content("~/scripts/bootstrap.min.js")"></script>
 
 </body>
 </html>
+
 
 

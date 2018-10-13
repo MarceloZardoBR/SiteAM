@@ -64,5 +64,11 @@ namespace FiapAM.Controllers
         {
             return View(new NoticiaDAO().BuscarPorId(Id));
         }
+
+        [HttpGet]
+        public ActionResult Equipe()
+        {
+            return View();
+        }
     }
 }

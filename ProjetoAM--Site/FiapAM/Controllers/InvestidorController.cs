@@ -15,17 +15,35 @@ namespace FiapAM.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            InvestidorDAO dao = new InvestidorDAO();
-            IList<Investidor> lista = dao.ListarTodos();
-            return View(lista);
+            if(Session["UsuarioLogado"] != null)
+            {
+                InvestidorDAO dao = new InvestidorDAO();
+                IList<Investidor> lista = dao.ListarTodos();
+                return View(lista);
+            }
+            else
+            {
+                TempData["Mensagem"] = "Sessão Expirada! Efetue o Login novamente";
+                return RedirectToAction("Index","Admin");
+            }
+            
         }
 
 
         [HttpGet]
         public ActionResult Inserir()
         {
-            ModelState.Clear();
-            return View(new Investidor());
+            if (Session["UsuarioLogado"] != null)
+            {
+                ModelState.Clear();
+                return View(new Investidor());
+            }
+            else
+            {
+                TempData["Mensagem"] = "Sessão Expirada! Efetue o Login novamente";
+                return RedirectToAction("Index", "Admin");
+            }
+            
         }
 
         [HttpPost]
@@ -70,7 +88,16 @@ namespace FiapAM.Controllers
         [HttpGet]
         public ActionResult Editar(int Id)
         {
-            return View(new InvestidorDAO().Buscar(Id));
+            if (Session["UsuarioLogado"] != null)
+            {
+                return View(new InvestidorDAO().Buscar(Id));
+            }
+            else
+            {
+                TempData["Mensagem"] = "Sessão Expirada! Efetue o Login novamente";
+                return RedirectToAction("Index", "Admin");
+            }
+            
         }
 
         [HttpPost]
@@ -117,8 +144,16 @@ namespace FiapAM.Controllers
         [HttpGet]
         public ActionResult Consultar(int id)
         {
-            return View(new InvestidorDAO().Buscar(id));
-
+            if (Session["UsuarioLogado"] != null)
+            {
+                return View(new InvestidorDAO().Buscar(id));
+            }
+            else
+            {
+                TempData["Mensagem"] = "Sessão Expirada! Efetue o Login novamente";
+                return RedirectToAction("Index", "Admin");
+            }
+            
         }
 
         [HttpGet]

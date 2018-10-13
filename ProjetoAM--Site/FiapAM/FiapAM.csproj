@@ -116,6 +116,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-custom.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -124,6 +125,7 @@
     <Content Include="Content\css\new-age-adm.css" />
     <Content Include="Content\css\new-age.css" />
     <Content Include="Content\css\new-age.min.css" />
+    <Content Include="Content\css\team-worker.css" />
     <Content Include="Content\demo\demo.css" />
     <Content Include="Content\demo\demo.js" />
     <Content Include="Content\device-mockups\apple_watch\edition\gold.png" />
@@ -743,7 +745,7 @@
     <Content Include="Views\Contato\GravarSucesso.cshtml" />
     <Content Include="Views\Contato\Index.cshtml" />
     <Content Include="Views\TipoContato\Index.cshtml" />
-    <Content Include="Views\Shared\LayoutWebAdm.cshtml" />
+    <Content Include="Views\Shared\LayoutNoticia.cshtml" />
     <Content Include="Views\Investidor\Index.cshtml" />
     <Content Include="Views\Investidor\Consultar.cshtml" />
     <Content Include="Views\Admin\Login.cshtml" />
@@ -757,6 +759,7 @@
     <Content Include="Views\Home\Visualizar.cshtml" />
     <Content Include="Views\Noticia\Editar.cshtml" />
     <Content Include="Views\Shared\LayoutDashAdmin.cshtml" />
+    <Content Include="Views\Home\Equipe.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -766,7 +769,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Arquivos\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
