@@ -13,11 +13,6 @@
     <div class="row">
           <div class="col-lg-12">
               <div class="well">
-                    @if (!ViewData.ModelState.IsValid)
-                    {
-                    @Html.ValidationSummary()
-                    }
-                    @TempData["Mensagem"]
 
                     <br />
                     <br />
@@ -27,6 +22,11 @@
 
                     <h2>Login</h2>
 
+                  @if (!ViewData.ModelState.IsValid)
+                    {
+                    @Html.ValidationSummary()
+                    }
+                    @TempData["Mensagem"]
                     <!--Html.begin form enviara caso botao clickado para a pagina indicada no "Primeiro Parametro","Segundo indica o pacote"-->
                     <!--Fazer a pagina de Login sucesso-->
                     @using (Html.BeginForm("Login", "Admin", FormMethod.Post))

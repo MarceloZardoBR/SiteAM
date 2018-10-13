@@ -26,7 +26,7 @@ namespace FiapAM.Models
         [Column("TITULO")]
         [Display(Name = "Titulo da Noticia", Description = "Informe o Titulo da Noticia")]
         [Required(ErrorMessage = "Titulo obrigatório")]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "O campo Titulo deve possuir no mínimo 3 e no máximo 50 caracteres")]
+        [StringLength(200, MinimumLength = 3, ErrorMessage = "O campo Titulo deve possuir no mínimo 3 e no máximo 50 caracteres")]
         public String Titulo { get; set; }
 
         [Column("TEXTO")]

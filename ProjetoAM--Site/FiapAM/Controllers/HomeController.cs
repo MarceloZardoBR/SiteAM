@@ -15,8 +15,9 @@ namespace FiapAM.Controllers
         public ActionResult Index()
         {
             NoticiaDAO dao = new NoticiaDAO();
-            IList<Noticia> lista = dao.ListarTodos().Take<Noticia>(3).ToList<Noticia>();
-  
+            //IList<Noticia> lista = dao.ListarTodos().Take<Noticia>(3).ToList<Noticia>();
+            IList<Noticia> lista = dao.ListarTodos().OrderByDescending(x => x.Data).ToList();
+
             return View(lista);
         }
 
@@ -67,6 +68,12 @@ namespace FiapAM.Controllers
 
         [HttpGet]
         public ActionResult Equipe()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Caracteristicas()
         {
             return View();
         }

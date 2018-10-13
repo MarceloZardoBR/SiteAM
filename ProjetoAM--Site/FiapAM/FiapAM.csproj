@@ -220,6 +220,7 @@
     <Content Include="Content\img\bg-cta.jpg" />
     <Content Include="Content\img\bg-pattern.png" />
     <Content Include="Content\img\demo-screen-1.jpg" />
+    <Content Include="Content\img\edenuncia-denuncia.jpg" />
     <Content Include="Content\img\google-play-badge.svg" />
     <Content Include="Content\js\bootstrap-new.js" />
     <Content Include="Content\js\core\bootstrap-material-design.min.js" />
@@ -760,6 +761,7 @@
     <Content Include="Views\Noticia\Editar.cshtml" />
     <Content Include="Views\Shared\LayoutDashAdmin.cshtml" />
     <Content Include="Views\Home\Equipe.cshtml" />
+    <Content Include="Views\Home\Caracteristicas.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

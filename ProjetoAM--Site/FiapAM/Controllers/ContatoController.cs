@@ -35,7 +35,7 @@ namespace FiapAM.Controllers
                 // ENVIAR O USUÁRIO PARA TELA DE ERRO.
                 IList<TipoContato> ListaTipoContato = new TipoContatoDAO().ListarTodos();
                 ViewBag.ListaTipoContato = ListaTipoContato;
-                return View("Index", Contato);
+                return View("GravarErro");
             }
 
 
