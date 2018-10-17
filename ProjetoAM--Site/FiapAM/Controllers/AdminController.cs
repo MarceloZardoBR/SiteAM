@@ -41,5 +41,11 @@ namespace FiapAM.Controllers
             }
 
         }
+
+        [HttpGet]
+        public ActionResult Logoff()
+        {
+            return View("Index");
+        }
     }
 }
