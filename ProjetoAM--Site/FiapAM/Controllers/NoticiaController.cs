@@ -79,6 +79,7 @@ namespace FiapAM.Controllers
 
                 NoticiaDAO _noticiaDAO = new NoticiaDAO();
                 _noticiaDAO.Editar(News);
+                TempData["Mensagem"] = "Noticia editada com sucesso!!";
                 return View();
         }
 

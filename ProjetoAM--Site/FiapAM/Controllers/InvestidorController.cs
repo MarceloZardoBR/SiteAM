@@ -160,7 +160,7 @@ namespace FiapAM.Controllers
         public ActionResult Excluir(int Id)
         {
             new InvestidorDAO().Deletar(Id);
-            TempData["mensagem"] = "Produto excluido com sucesso";
+            TempData["mensagem"] = "Investidor excluido com sucesso";
             return RedirectToAction("Index");
         }
     }

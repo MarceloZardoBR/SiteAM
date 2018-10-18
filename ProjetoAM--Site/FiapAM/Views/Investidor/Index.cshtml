@@ -22,9 +22,9 @@
             <div class="col-md-12">
 
                 <p class="toolbar">
-                    @Html.ActionLink("Inserir Novo Investidor", "Inserir", new object { }, new { @class = "create btn btn-default" })
+                    @Html.ActionLink("Inserir Novo Investidor", "Inserir", new object { }, new { @class = "create btn btn-default" })       @TempData["Mensagem"]
                     <br />
-                    
+
                 </p>
                 <table class="table table-striped" cellspacing="0" cellpadding="0">
                     <thead>
