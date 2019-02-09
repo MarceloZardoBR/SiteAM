@@ -16,7 +16,7 @@ namespace FiapAM.Controllers
         {
             NoticiaDAO dao = new NoticiaDAO();
             //IList<Noticia> lista = dao.ListarTodos().Take<Noticia>(3).ToList<Noticia>();
-            IList<Noticia> lista = dao.ListarTodos().OrderByDescending(x => x.Data).ToList();
+            IList<Noticia> lista = dao.ListarTodos().OrderByDescending(x => x.Data).Take<Noticia>(3).ToList();
 
             return View(lista);
         }
